@@ -49,5 +49,10 @@ describe ('BankTeller',() => {
       it('returns a statement with only the header when there are no transactions in the account', () => {
         expect(newAccount.printStatement()).toEqual('date || credit || debit || balance\n');
       });
+
+      it('returns a statement with one transaction in the account', () => {
+        newAccount.deposit(1000);
+        expect(newAccount.printStatement()).toEqual('date || credit || debit || balance\n || 1000.00 || || 1000.00\n');
+      });
   });
 })
