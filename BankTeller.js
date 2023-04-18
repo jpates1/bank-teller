@@ -18,6 +18,9 @@ class BankTeller{
   }
 
   addTransaction(credit, debit){
+    if ((credit && credit <= 0) || (debit && debit <= 0)) {
+      throw new Error("Amount must be positive");
+    }
 
     this.transactions.push({
       credit: credit,

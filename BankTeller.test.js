@@ -15,6 +15,10 @@ describe ('BankTeller',() => {
       newAccount.deposit(0);
       expect(newAccount.printStatement()).toContain(' || || || 0.00\n');
     });
+
+    it('throws an error if the deposit amount is negative', () => {
+      expect(() => newAccount.deposit(-100)).toThrow('Amount must be positive');
+    });
   });
 
 })
