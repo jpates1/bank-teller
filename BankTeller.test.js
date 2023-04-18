@@ -33,5 +33,10 @@ describe ('BankTeller',() => {
       newAccount.withdraw(0);
       expect(newAccount.printStatement()).toContain(' || || || 1000.00\n');
     });
+
+    it('throws an error if the withdrawal amount is greater than the account balance', () => {
+      newAccount.deposit(1000);
+      expect(() => newAccount.withdraw(1500)).toThrow('Insufficient balance');
+    });
   });
 })
