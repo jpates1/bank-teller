@@ -45,14 +45,23 @@ describe ('BankTeller',() => {
     });
   });
 
-    describe('statement', () => {
-      it('returns a statement with only the header when there are no transactions in the account', () => {
-        expect(newAccount.printStatement()).toEqual('date || credit || debit || balance\n');
-      });
+  describe('statement', () => {
+    it('returns a statement with only the header when there are no transactions in the account', () => {
+      expect(newAccount.printStatement()).toEqual('date || credit || debit || balance\n');
+    });
 
-      it('returns a statement with one transaction in the account', () => {
-        newAccount.deposit(1000);
-        expect(newAccount.printStatement()).toEqual('date || credit || debit || balance\n || 1000.00 || || 1000.00\n');
-      });
+    it('returns a statement with one transaction in the account', () => {
+      newAccount.deposit(1000);
+      expect(newAccount.printStatement()).toEqual('date || credit || debit || balance\n || 1000.00 || || 1000.00\n');
+    });
+
+    it('returns a statement with multiple transactions in the account, in different order than the provided acceptance criteria', () => {
+      newAccount.deposit(1000);
+      newAccount.withdraw(500);
+      newAccount.deposit(2000);
+      expect(newAccount.printStatement()).toContain(' || 2000.00 || || 2500.00\n');
+      expect(newAccount.printStatement()).toContain(' || || 500.00 || 500.00\n');
+      expect(newAccount.printStatement()).toContain(' || 1000.00 || || 1000.00\n');
+    });
   });
 })
