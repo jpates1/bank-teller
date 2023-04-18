@@ -15,10 +15,11 @@ class BankTeller{
   printStatement() {
     let header = "date || credit || debit || balance\n";
     let rows = this.transactions.slice().map((transaction) => {
+      let date = transaction.date;
       let credit = transaction.credit ? `${transaction.credit.toFixed(2)} ` : '';
       let debit = transaction.debit ? `${transaction.debit.toFixed(2)} ` : '';      
       let balance = transaction.balance.toFixed(2);
-      return ` || ${credit}|| ${debit}|| ${balance}\n`;
+      return ` ${date} || ${credit}|| ${debit}|| ${balance}\n`;
     });
     return header + rows.join('');
   }
@@ -32,6 +33,7 @@ class BankTeller{
     }
 
     this.transactions.push({
+      date: new Date().toLocaleDateString(),
       credit: credit,
       debit: debit,
       balance: this.balance + (credit || 0) - (debit || 0)
@@ -43,4 +45,5 @@ class BankTeller{
 }
 
 module.exports = BankTeller;
+
 
