@@ -38,5 +38,10 @@ describe ('BankTeller',() => {
       newAccount.deposit(1000);
       expect(() => newAccount.withdraw(1500)).toThrow('Insufficient balance');
     });
+
+    it('throws an error if the withdrawal amount is negative', () => {
+      newAccount.deposit(1000);
+      expect(() => newAccount.withdraw(-100)).toThrow('Amount must be positive');
+    });
   });
 })
