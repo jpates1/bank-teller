@@ -8,11 +8,16 @@ class BankTeller{
     this.addTransaction(cash, null);
   }
 
+  withdraw(cash){
+    this.addTransaction(null, cash);
+  }
+
   printStatement() {
     let statement = this.transactions.slice().map((transaction) => {
       let credit = transaction.credit ? `${transaction.credit.toFixed(2)} ` : '';
+      let debit = transaction.debit ? `${transaction.debit.toFixed(2)} ` : '';      
       let balance = transaction.balance.toFixed(2);
-      return ` || ${credit}|| || ${balance}\n`;
+      return ` || ${credit}|| ${debit}|| ${balance}\n`;
     });
     return statement.join('');
   }

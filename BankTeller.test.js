@@ -21,4 +21,12 @@ describe ('BankTeller',() => {
     });
   });
 
+  describe('withdraw', () => {
+    it('adds a withdrawal transaction with a positive amount to the account', () => {
+      newAccount.deposit(1000);
+      newAccount.withdraw(500);
+      expect(newAccount.printStatement()).toContain(' || || 500.00 || 500.00\n');
+    });
+    
+  });
 })
