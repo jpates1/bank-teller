@@ -9,13 +9,12 @@ class BankTeller{
   }
 
   printStatement() {
-    let credit = 0;
-    this.transactions.forEach((transaction) => {
-      if (transaction.credit) {
-        credit += transaction.credit;
-      }
+    let statement = this.transactions.slice().map((transaction) => {
+      let credit = transaction.credit ? `${transaction.credit.toFixed(2)} ` : '';
+      let balance = transaction.balance.toFixed(2);
+      return ` || ${credit}|| || ${balance}\n`;
     });
-    return ` || ${credit.toFixed(2)} || || ${credit.toFixed(2)}\n`;
+    return statement.join('');
   }
 
   addTransaction(credit, debit){
@@ -23,7 +22,10 @@ class BankTeller{
     this.transactions.push({
       credit: credit,
       debit: debit,
+      balance: this.balance + (credit || 0) - (debit || 0)
     });
+
+    this.balance = this.transactions[this.transactions.length - 1].balance;
   };
 
 }
