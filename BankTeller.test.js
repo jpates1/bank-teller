@@ -44,4 +44,10 @@ describe ('BankTeller',() => {
       expect(() => newAccount.withdraw(-100)).toThrow('Amount must be positive');
     });
   });
+
+    describe('statement', () => {
+      it('returns a statement with only the header when there are no transactions in the account', () => {
+        expect(newAccount.printStatement()).toEqual('date || credit || debit || balance\n');
+      });
+  });
 })

@@ -13,13 +13,14 @@ class BankTeller{
   }
 
   printStatement() {
-    let statement = this.transactions.slice().map((transaction) => {
+    let header = "date || credit || debit || balance\n";
+    let rows = this.transactions.slice().map((transaction) => {
       let credit = transaction.credit ? `${transaction.credit.toFixed(2)} ` : '';
       let debit = transaction.debit ? `${transaction.debit.toFixed(2)} ` : '';      
       let balance = transaction.balance.toFixed(2);
       return ` || ${credit}|| ${debit}|| ${balance}\n`;
     });
-    return statement.join('');
+    return header + rows.join('');
   }
 
   addTransaction(credit, debit){
