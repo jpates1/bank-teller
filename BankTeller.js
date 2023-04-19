@@ -14,7 +14,7 @@ class BankTeller{
 
   printStatement() {
     let header = "date || credit || debit || balance\n";
-    let rows = this.transactions.slice().map((transaction) => {
+    let rows = this.transactions.slice().reverse().map((transaction) => {
       let date = transaction.date;
       let credit = transaction.credit ? `${transaction.credit.toFixed(2)} ` : '';
       let debit = transaction.debit ? `${transaction.debit.toFixed(2)} ` : '';      
@@ -47,3 +47,10 @@ class BankTeller{
 module.exports = BankTeller;
 
 
+const teller = new BankTeller();
+
+teller.deposit(1000);
+teller.withdraw(500);
+teller.deposit(2000);
+
+console.log(teller.printStatement());

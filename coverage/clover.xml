@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1681899642339" clover="3.2.0">
+  <project timestamp="1681899642339" name="All files">
+    <metrics statements="24" coveredstatements="24" conditionals="18" coveredconditionals="18" methods="6" coveredmethods="6" elements="48" coveredelements="48" complexity="0" loc="24" ncloc="24" packages="1" files="1" classes="1"/>
+    <file name="BankTeller.js" path="/Users/matthewroydon/Projects/bank-teller/BankTeller.js">
+      <metrics statements="24" coveredstatements="24" conditionals="18" coveredconditionals="18" methods="6" coveredmethods="6"/>
+      <line num="3" count="11" type="stmt"/>
+      <line num="4" count="11" type="stmt"/>
+      <line num="8" count="12" type="stmt"/>
+      <line num="12" count="6" type="stmt"/>
+      <line num="16" count="10" type="stmt"/>
+      <line num="17" count="10" type="stmt"/>
+      <line num="18" count="19" type="stmt"/>
+      <line num="19" count="19" type="cond" truecount="2" falsecount="0"/>
+      <line num="20" count="19" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="19" type="stmt"/>
+      <line num="22" count="19" type="stmt"/>
+      <line num="24" count="10" type="stmt"/>
+      <line num="28" count="18" type="cond" truecount="6" falsecount="0"/>
+      <line num="29" count="2" type="stmt"/>
+      <line num="31" count="16" type="cond" truecount="4" falsecount="0"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="35" count="15" type="stmt"/>
+      <line num="42" count="15" type="stmt"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="50" count="1" type="stmt"/>
+      <line num="52" count="1" type="stmt"/>
+      <line num="53" count="1" type="stmt"/>
+      <line num="54" count="1" type="stmt"/>
+      <line num="56" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
